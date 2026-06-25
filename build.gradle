@@ -6,6 +6,7 @@ plugins {
 
 group = 'resilienceOrder'
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
 java {
 	toolchain {
@@ -29,6 +30,7 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
