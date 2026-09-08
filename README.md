@@ -42,26 +42,15 @@ EBS 교육을 수강하는 수강생의 수학능력시험 응시 시기
  6.2 FIFO - 순서대로 들어온 인증요청 선입선출 구조로 담아두어 가상 대기열 기틀을 만들기 위함
  6.3 실시간 카운터 변수 - 현재 서버의 부하 실시간 수치로 기록하고 비교 연산하기 위한 정수형 변수와 비교 연산자('++', '--'), 
 
-디렉토리 구조
-national-entrance-auth/
-  ├── controller/
-  │    └── app.js                # 2.3 네트워크 수문장 및 응답 (Controller)
-  │
-  ├── service/
-  │    └── studentService.js     # 2.1 비즈니스 로직 및 예외 처리 (Service)
-  │
-  ├── repository/
-  │    └── studentRepository.js  # 2.2 가상 학적부 데이터 및 FIFO 큐 관리 (Repository)
-  │
-  ├── student.test.js            # 최상위에 두는 테스트 파일 (TDD)
+
 
 디렉토리 구조 - 서비스, 레포지토리, 컨트롤러 순서로 동작
 
 national-entrance-auth/
-  |- controller/ # 네트워크 수문장 및 응답
-    - app.js
+  |- controller/ 
+    - app.js # 3. 네트워크 수문장 및 응답
   |- service/
-    - studentService.js - # 비즈니스 로직 및 예외 처리
+    - studentService.js - # 1. 비즈니스 로직 및 예외 처리
   | - repository/
-    - studentRepository.js # 가상 학적부 정보 및 FIFO 큐 관리
+    - studentRepository.js # 2. 가상 학적부 정보 및 FIFO 큐 관리
   | - student.test.js # 최상위에 두는 테스트
