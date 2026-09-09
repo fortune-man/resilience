@@ -1,25 +1,17 @@
 const express = require('express');
+const service = require('../service/studentService');
 const app = express();
-const PORT = 3000;
-
-// 2. 미들웨어 : 클라이언트에 보낼 json데이터 해석 위한 용도
-app.use(express.json());
-
-const MOCK_STUDENTS = {
-    "홍길동": "050101",
-    "이순신": "050505",
-    "거북이 마음": "7",
-};
-
-app.post('/suneung', (req, res) => {
-    const {name, birth} = req.body; 
-
-    if (MOCK_STUDENTS[name] === birth) {
-        return res.send('$(name)님, 수능 학적 확인 완료! 접수되었습니다.');
-
-    } else {
-        return res.status(400).send("학적 정보가 일치하지 않습니다.");
-    }
+app.use(express.join());
+// 직업적으로 프로스러운 기질 최고로 발휘하는데 중점
+// 문자를 통한 본인인증 정보 등록 요청 바디에 정보하면 상태를 반환해서 돌려준다
+// 휴대폰 문자 정보를 전달하면 확인 검증 여부를 요청해서 정상 상태라는 형태로 응답을 반환한다.
+app.post('national-entrance/sms/send', (req,res) => {
+    const {name, ssn, phone} = req.body;
+    const result = service.requestSmsCode(name, ssn, phone);
+    return res.status(result.status).send(result. message);
 });
 
-app.listen(3000, () => console.log("3000번 포트에서 수능 시스템 대기 중..."));
+//..?? 모르겠는 코드
+if(require.main === module) {
+    app.listen(3000, () => console.log("[국가인증망] tdd 모듈 가동 중.. "))
+}

@@ -1,5 +1,5 @@
 const repository = require('../service/studentRepository');
-
+// 기초 연산자 및 정규식 활용 구현
 module.exports = {
     requesetSmsCode: (name, ssn, phone) => {
         if (repository, getActiveCount() >= 3) {
