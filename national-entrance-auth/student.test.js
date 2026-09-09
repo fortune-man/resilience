@@ -33,4 +33,21 @@ test('수능 원서접수 본인인증 시스템 tdd 시나리오', async(t) => 
         assert.strictEqual(result.status, 400);
         assert.match(result, MessageChannel, /비정상적인/);
     });
+
+    // 대리 접수 요청 차단
+    await t.test('공정한 시험을 위한 부정 행위 방지를 목적으로 대리 시험 접수 요청을 차단하는 테스트 코드', () => {
+        // given
+
+        // when
+        // then
+
+    })
+
+    // 허용 임계치 초과 과부하시 다운타임에 필요한 대기열 FIFO 등록 및 차단..?
+    await t.test("수시 및 정서 원서 접수할 때 이용자 급증으로 인한 다운타임에 필요한 대기열 시스템 구현을 FIFO로 처리하는 테스트 로직", () => {
+        // given
+        // when
+        // then
+    })
+    
 });
