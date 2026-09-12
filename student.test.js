@@ -51,8 +51,16 @@ test('수능 원서접수 본인인증 시스템 tdd 시나리오', async(t) => 
         // then
         status 200 여부 assert문을 통한 검증
          */
-        
-    })
+        // given
+        repository.setStudent("김주형", {ssn : "960926-1234567", phone: "010"})
+
+        // when
+        const result = service.requestSmsCode("김주형", "960926-1234567", "01054760926");
+
+        // then: 불일치 거부 응답 거부 검증
+        assert.strictEqual(result.success, false);
+        assert.strictEqual(result.status, 400);
+    });
 
     // 허용 임계치 초과 과부하시 다운타임에 필요한 대기열 FIFO 등록 및 차단..?
     await t.test("수시 및 정서 원서 접수할 때 이용자 급증으로 인한 다운타임에 필요한 대기열 시스템 구현을 FIFO로 처리하는 테스트 로직", () => {
@@ -73,4 +81,5 @@ test('수능 원서접수 본인인증 시스템 tdd 시나리오', async(t) => 
     })
     
     // 무차별
+    
 });
